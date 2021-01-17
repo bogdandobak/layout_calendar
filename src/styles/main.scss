@@ -1,3 +1,92 @@
+$size: 100px;
+
+$gap: 1px;
+
+$font: 30px "Arial", sans-serif;
+
+$b-color: #eee;
+$border: 1px solid black;
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin calendarBlock {
+  height: $size;
+  width: $size;
+  box-sizing: border-box;
+
+  margin-bottom: $gap;
+  margin-right: $gap;
+  
+  font: $font;
+
+  background-color: $b-color;
+  border: $border;
+}
+
 body {
+  height: 100vh;
+
+  @include flexCenter();
   margin: 0;
+}
+
+.calendar {
+  width: 707px;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@for $i from 1 through 31 {
+  .calendar div:nth-child(#{$i})::after {
+    display: none;
+
+    content: "#{$i}";
+  }
+}
+
+@for $i from 1 through 31 {
+  .calendar-#{$i} div:nth-child(-n+#{$i}) {
+    @include calendarBlock();
+
+    @include flexCenter();
+
+    &::after {
+      display: inline;
+    }
+  }
+  
+  .calendar-#{$i} div:hover {
+    margin-top: -20px;
+    margin-bottom: 21px;
+    
+    background-color: pink;
+
+    transition-duration: 500ms;
+    cursor: pointer;
+  }
+}
+
+$margin-dif: 101px;
+$margins: 606px;
+
+$order:
+  (
+    "sun": $margins,
+    "sat": $margins - $margin-dif,
+    "fri": $margins - $margin-dif * 2,
+    "tue": $margins - $margin-dif * 3,
+    "wed": $margins - $margin-dif * 4,
+    "thu": $margins - $margin-dif * 5,
+    "mon": $margins - $margin-dif * 6
+  );
+
+@each $name, $margin in $order {
+  .calendar-#{$name} div:first-child {
+    margin-left: $margin;
+  }
 }
