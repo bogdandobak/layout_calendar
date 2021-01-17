@@ -79,9 +79,9 @@ $order:
     "sun": $margins,
     "sat": $margins - $margin-dif,
     "fri": $margins - $margin-dif * 2,
-    "tue": $margins - $margin-dif * 3,
+    "thu": $margins - $margin-dif * 3,
     "wed": $margins - $margin-dif * 4,
-    "thu": $margins - $margin-dif * 5,
+    "tue": $margins - $margin-dif * 5,
     "mon": $margins - $margin-dif * 6
   );
 
