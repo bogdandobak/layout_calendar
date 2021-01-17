@@ -26,7 +26,7 @@ Display a calendar in the middle of the screen. The HTML of the calendar needs t
   - [@for](https://sass-lang.com/documentation/at-rules/control/for)
 - You can use `flex` and `margin-left` of required size for the `:first-child`
 - Use the given HTML (don't change anything or add numbers 1 through 31).
-- The first day of the week is Monday. (the first column)
+- The first day of the week is Monday. (the first column)g
 - The `calendar-30` classname here means that the month has 30 days
   - It should also show correct number of days if we replace `calendar-30` class with `calendar-28`, `calendar-29` or `calendar-31`
 - `calendar-tue` means that the first day of the month is Tuesday.
